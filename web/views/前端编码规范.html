@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>前段编码规范</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1>
+<a id="user-content-一般规范" class="anchor" href="#%E4%B8%80%E8%88%AC%E8%A7%84%E8%8C%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>一般规范</h1>
+
+<h2>
+<a id="user-content-文件资源命名" class="anchor" href="#%E6%96%87%E4%BB%B6%E8%B5%84%E6%BA%90%E5%91%BD%E5%90%8D" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>文件/资源命名</h2>
+
+<p>文件命名总是以字母开头而不是数字。而以特殊字符开头命名的文件，一般都有特殊的含义与用处  </p>
+
+<p>资源的字母名称必须全为<strong>小写</strong>，这是因为在某些对大小写字母敏感的操作系统中，当文件通过工具压缩混淆后，或者人为修改过后，大小写不同而导致引用文件不同的错误，很难被发现。  </p>
+
+<p>需要对文件增加前后缀或特定的扩展名（比如 .min.js, .min.css），抑或一串前缀（比如 3fa89b.main.min.css），使用点分隔符来区分这些在文件名中带有清晰意义的元数据。  </p>
+
+<h2>
+<a id="user-content-协议" class="anchor" href="#%E5%8D%8F%E8%AE%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>协议</h2>
+
+<p>当引入图片或其他媒体文件，还有样式和脚本时，URLs 所指向的具体路径，不要指定协议部分（<code>http:</code>, <code>https:</code>），除非这两者协议都不可用。  </p>
+
+<p>不指定协议使得 URL 从绝对的获取路径转变为相对的，在请求资源协议无法确定时非常好用，而且还能为文件大小节省几个字节。  </p>
+
+<h2>
+<a id="user-content-文本缩进" class="anchor" href="#%E6%96%87%E6%9C%AC%E7%BC%A9%E8%BF%9B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>文本缩进</h2>
+
+<p>一次缩进<strong>两个</strong>空格（html,css,js等),这是唯一能保证在所有环境下获得一致展现的方法  </p>
+
+<h2>
+<a id="user-content-注释" class="anchor" href="#%E6%B3%A8%E9%87%8A" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>注释</h2>
+
+<p>不要写你的代码都干了些什么，而要写你的代码为什么要这么写，背后的考量是什么。当然也可以加入所思考问题或是解决方案的链接地址。</p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+
+<h1>
+<a id="user-content-html规范" class="anchor" href="#html%E8%A7%84%E8%8C%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HTML规范</h1>
+
+<h2>
+<a id="user-content-文档类型" class="anchor" href="#%E6%96%87%E6%A1%A3%E7%B1%BB%E5%9E%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>文档类型</h2>
+
+<p>使用<code>&lt;!DOCHTML html&gt;</code>  </p>
+
+<h2>
+<a id="user-content-编码" class="anchor" href="#%E7%BC%96%E7%A0%81" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>编码</h2>
+
+<p>采用"utf-8",<code>&lt;meta charset="UTF-8"&gt;</code>。  </p>
+
+<h2>
+<a id="user-content-脚本加载" class="anchor" href="#%E8%84%9A%E6%9C%AC%E5%8A%A0%E8%BD%BD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>脚本加载</h2>
+
+<p>脚本引用写在 body 结束标签之前，并带上 <code>async</code> 属性。  </p>
+
+<h2>
+<a id="user-content-语义化" class="anchor" href="#%E8%AF%AD%E4%B9%89%E5%8C%96" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>语义化</h2>
+
+<p>尽量使用语义化标签  </p>
+
+<h2>
+<a id="user-content-多媒体回溯" class="anchor" href="#%E5%A4%9A%E5%AA%92%E4%BD%93%E5%9B%9E%E6%BA%AF" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>多媒体回溯</h2>
+
+<p>对页面上的媒体而言，像图片、视频、canvas 动画等，要确保其有可替代的接入接口。图片文件我们可采用有意义的备选文本（alt），视频和音频文件我们可以为其加上说明文字或字幕。  </p>
+
+<p>尽量用 alt 标签去描述图片，设想你需要对于那些只能通过语音或者看不见图片的用户表达图片到底是什么。  </p>
+
+<h2>
+<a id="user-content-关注点分离" class="anchor" href="#%E5%85%B3%E6%B3%A8%E7%82%B9%E5%88%86%E7%A6%BB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>关注点分离</h2>
+
+<p>理解 web 中如何和为何区分不同的关注点，这很重要。这里的关注点主要指的是：信息（HTML 结构）、外观（CSS）和行为（JavaScript）。为了使它们成为可维护的干净整洁的代码，我们要尽可能的将它们分离开来。</p>
+
+<p>严格地保证结构、表现、行为三者分离，并尽量使三者之间没有太多的交互和联系。</p>
+
+<p>就是说，尽量在文档和模板中只包含结构性的 HTML；而将所有表现代码，移入样式表中；将所有动作行为，移入脚本之中。</p>
+
+<p>在此之外，为使得它们之间的联系尽可能的小，在文档和模板中也尽量少地引入样式和脚本文件。</p>
+
+<p>清晰的分层意味着：</p>
+
+<ul>
+<li>不使用超过一到两张样式表（i.e. main.css, vendor.css）</li>
+<li>不使用超过一到两个脚本（学会用合并脚本）</li>
+<li>不使用行内样式（<code>&lt;style&gt;.no-good {}&lt;/style&gt;</code>）</li>
+<li>不在元素上使用 style 属性（<code>&lt;hr style="border-top: 5px solid black"&gt;</code>）</li>
+<li>不使用行内脚本（<code>&lt;script&gt;alert('no good')&lt;/script&gt;</code>）</li>
+<li>不使用表象元素（i.e. <code>&lt;b&gt;</code>, <code>&lt;u&gt;</code>, <code>&lt;center&gt;</code>, <code>&lt;font&gt;</code>, <code>&lt;b&gt;</code>）</li>
+<li>不使用表象 class 名（i.e. red, left, center）<br>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-html-内容至上" class="anchor" href="#html-%E5%86%85%E5%AE%B9%E8%87%B3%E4%B8%8A" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HTML 内容至上</h2>
+
+<p>不要让非内容信息污染了你的 HTML。HTML 就应该只关注内容。  </p>
+
+<p>HTML 标签的目的，就是为了不断地展示内容信息。  </p>
+
+<ul>
+<li>不要引入一些特定的 HTML 结构来解决一些视觉设计问题</li>
+<li>不要将 img 元素当做专门用来做视觉设计的元素<br>
+</li>
+</ul>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-text-html-basic"><pre>    <span class="pl-c">&lt;!-- We should not introduce an additional element  </span>
+<span class="pl-c">    just to solve a design problem  --&gt;</span>
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>text-box<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>square<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">span</span>&gt;
+      See the square next to me?
+    &lt;/<span class="pl-ent">span</span>&gt;  </pre></div>
+
+<div class="highlight highlight-source-css"><pre>    <span class="pl-e">.text-box</span> &gt; <span class="pl-e">.square</span> {
+      <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">inline-block</span>;
+      <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">1<span class="pl-k">rem</span></span>;
+      <span class="pl-c1"><span class="pl-c1">height</span></span>: <span class="pl-c1">1<span class="pl-k">rem</span></span>;
+      <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">red</span>;
+    }  </pre></div>
+
+<p><strong>推荐</strong></p>
+
+<div class="highlight highlight-text-html-basic"><pre>    <span class="pl-c">&lt;!-- That's clean markup! --&gt;</span>
+    &lt;<span class="pl-ent">span</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>text-box<span class="pl-pds">"</span></span>&gt;
+      See the square next to me?
+    &lt;/<span class="pl-ent">span</span>&gt;</pre></div>
+
+<div class="highlight highlight-source-css"><pre>    <span class="pl-e">.text-box</span><span class="pl-e">:before</span> {
+      <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>;
+      <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">inline-block</span>;
+      <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">1<span class="pl-k">rem</span></span>;
+      <span class="pl-c1"><span class="pl-c1">height</span></span>: <span class="pl-c1">1<span class="pl-k">rem</span></span>;
+      <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">red</span>;
+    }  </pre></div>
+
+<h2>
+<a id="user-content-ie-兼容模式" class="anchor" href="#ie-%E5%85%BC%E5%AE%B9%E6%A8%A1%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>*IE 兼容模式</h2>
+
+<p>IE 支持通过特定的  标签来确定绘制当前页面所应该采用的 IE 版本。除非有强烈的特殊需求，否则最好是设置为 edge mode，从而通知 IE 采用其所支持的最新的模式。  </p>
+
+<div class="highlight highlight-text-html-basic"><pre>    &lt;<span class="pl-ent">meta</span> <span class="pl-e">http-equiv</span>=<span class="pl-s"><span class="pl-pds">"</span>X-UA-Compatible<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>IE=Edge<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<h2>
+<a id="user-content-属性顺序" class="anchor" href="#%E5%B1%9E%E6%80%A7%E9%A1%BA%E5%BA%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>属性顺序</h2>
+
+<ul>
+<li>class</li>
+<li>id 、 name</li>
+<li>data-*</li>
+<li>src、for、 type、 href</li>
+<li>title、alt</li>
+<li>aria-*、 role<br>
+</li>
+</ul>
+
+<p>图片和 SVG 图形能被引入到 HTML 中的唯一理由是它们呈现出了与内容相关的一些信息。  </p>
+
+<h2>
+<a id="user-content-type属性" class="anchor" href="#type%E5%B1%9E%E6%80%A7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Type属性</h2>
+
+<p>省略样式表与脚本上的 type 属性。  </p>
+
+<h2>
+<a id="user-content-tab-index-在可用性上的运用" class="anchor" href="#tab-index-%E5%9C%A8%E5%8F%AF%E7%94%A8%E6%80%A7%E4%B8%8A%E7%9A%84%E8%BF%90%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>*Tab Index 在可用性上的运用</h2>
+
+<p>检查文档中的 tab 切换顺序并传值给元素上的 tabindex，这可以依据元素的重要性来重新排列其 tab 切换顺序。你可以设置 tabindex="-1" 在任何元素上来禁用其 tab 切换。  </p>
+
+<h2>
+<a id="user-content-id-和锚点" class="anchor" href="#id-%E5%92%8C%E9%94%9A%E7%82%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>*ID 和锚点</h2>
+
+<p>通常一个比较好的做法是将页面内所有的头部标题元素都加上 ID. 这样做，页面 URL 的 hash 中带上对应的 ID 名称，即形成描点，方便跳转至对应元素所处位置。</p>
+
+<p>打个比方，当你在浏览器中输入 URL <code>http://your-site.com/about#best-practices</code>，浏览器将定位至以下 H3 上。  </p>
+
+<div class="highlight highlight-text-html-basic"><pre>    &lt;<span class="pl-ent">h3</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>best-practices<span class="pl-pds">"</span></span>&gt;Best practices&lt;/<span class="pl-ent">h3</span>&gt;  </pre></div>
+
+<h2>
+<a id="user-content-格式化规则" class="anchor" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%A7%84%E5%88%99" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>格式化规则</h2>
+
+<p>在每一个块状元素，列表元素和表格元素后，加上一新空白行，并对其子孙元素进行缩进。内联元素写在一行内，块状元素还有列表和表格要另起一行。  </p>
+
+<h2>
+<a id="user-content-html-引号" class="anchor" href="#html-%E5%BC%95%E5%8F%B7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HTML 引号</h2>
+
+<p>使用双引号(") 而不是单引号(') 。  </p>
+
+<h2>
+<a id="user-content-标签闭合" class="anchor" href="#%E6%A0%87%E7%AD%BE%E9%97%AD%E5%90%88" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>标签闭合</h2>
+
+<p>能不闭合的标签就不闭合，如<code>&lt;br&gt;</code></p>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+
+<h1>
+<a id="user-content-css规范" class="anchor" href="#css%E8%A7%84%E8%8C%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>css规范</h1>
+
+<hr>
+
+<h2>
+<a id="user-content-id-and-class-naming" class="anchor" href="#id-and-class-naming" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ID and class naming</h2>
+
+<p>应该首选具体和反映元素目的的名称，因为这些是最可以理解的，而且发生变化的可能性最小。  </p>
+
+<p>通用名称只是多个元素的备用名，他们兄弟元素之间是一样的，没有特别意义。
+区分他们，使他们具有特殊意义，通常需要为“帮手”。  </p>
+
+<p>对于作为js钩子的 id 和 class 命名规则为以”J_“开头(J,象形钩子的形状)，后面加上原应有的命名，在使用class的时候需要放在最前面。如:<code>class="J_tab-content some-mod-content"</code>。（注意：钩子，不允许在css中定义任何的样式效果）</p>
+
+<h2>
+<a id="user-content-合理的避免使用id" class="anchor" href="#%E5%90%88%E7%90%86%E7%9A%84%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8id" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>合理的避免使用ID</h2>
+
+<p>一般情况下ID不应该被应用于样式。
+ID的样式不能被复用并且每个页面中你只能使用一次ID。  </p>
+
+<p>尽量少使用或不使用ID。  </p>
+
+<h2>
+<a id="user-content-css选择器中避免标签名" class="anchor" href="#css%E9%80%89%E6%8B%A9%E5%99%A8%E4%B8%AD%E9%81%BF%E5%85%8D%E6%A0%87%E7%AD%BE%E5%90%8D" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CSS选择器中避免标签名</h2>
+
+<p>当构建选择器时应该使用清晰， 准确和有语义的class(类)名。不要使用标签选择器。  </p>
+
+<p>从分离的角度考虑,在表现层中不应该分配html标记/语义。
+它可能是一个有序列表需要被改成一个无序列表，或者一个div将被转换成article。  </p>
+
+<p>如果你只使用具有实际意义的class(类)名，并且不使用元素选择器，那么你只需要改变你的html标记，而不用改动你的CSS。  </p>
+
+<h2>
+<a id="user-content-尽可能的精确" class="anchor" href="#%E5%B0%BD%E5%8F%AF%E8%83%BD%E7%9A%84%E7%B2%BE%E7%A1%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>尽可能的精确</h2>
+
+<p>尽量使用直接选择器“&gt;”。  </p>
+
+<h2>
+<a id="user-content-缩写属性" class="anchor" href="#%E7%BC%A9%E5%86%99%E5%B1%9E%E6%80%A7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>缩写属性</h2>
+
+<p>使用缩写属性对于代码效率和可读性是有很有用的,，可优化代码。  </p>
+
+<p>除非js需要，否则尽量用缩写的属性。  </p>
+
+<h4>
+<a id="user-content-边界情况" class="anchor" href="#%E8%BE%B9%E7%95%8C%E6%83%85%E5%86%B5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>边界情况：</h4>
+
+<ol>
+<li><p>没有指定的值会被设置为它的初始值;  </p></li>
+<li><p>关键词 <code>inherit</code> 只可以应用于单独属性（individual properties），如果应用于一个简写属性（shorthand property），则必须整体应用，而能对简写属性值的每一个部分单独应用。由于单独属性的漏掉的值会被它们的初始值（initial value）替代，因此不可能允许单个属性通过省略继承的 。这意味着让一个属性的值使用继承值的唯一方法就是使用值是 <code>inherit</code> 的普通属性（longhand property）。  </p></li>
+<li><p>简写属性不试图强制它们替代属性的值的特定顺序。这适用于当这些属性使用不同类型的值时，因为这个时候顺序并不重要。但当几个属性可以设置相同值的时候，就没那么简单了。  </p></li>
+</ol>
+
+<div class="highlight highlight-source-css"><pre>    background-color: red;
+    background: url(images/bg<span class="pl-e">.gif</span>) no-repeat top right;</pre></div>
+
+<p>上面的<code>background-color</code> 的默认值 <code>transparent</code>，因为第二条规则优先。 </p>
+
+<h2>
+<a id="user-content-0-和-单位" class="anchor" href="#0-%E5%92%8C-%E5%8D%95%E4%BD%8D" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>0 和 单位</h2>
+
+<p>省略“0”值后面的单位。不要在0值后面使用单位，除非有值。  </p>
+
+<h2>
+<a id="user-content-十六进制表示法" class="anchor" href="#%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%A1%A8%E7%A4%BA%E6%B3%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>十六进制表示法</h2>
+
+<p>在可能的情况下，使用3个字符的十六进制表示法。  </p>
+
+<p>始终使用小写的十六进制数字。  </p>
+
+<h2>
+<a id="user-content-id-和-class类-名的分隔符" class="anchor" href="#id-%E5%92%8C-class%E7%B1%BB-%E5%90%8D%E7%9A%84%E5%88%86%E9%9A%94%E7%AC%A6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ID 和 Class（类） 名的分隔符</h2>
+
+<p>使用<strong>连字符</strong>（中划线）分隔ID和Class（类）名中的单词。为了增强课理解性，在选择器中不要使用除了连字符（中划线）以为的任何字符（包括没有）来连接单词和缩写。</p>
+
+<p>另外，作为该标准，预设属性选择器能识别连字符（中划线）作为单词<code>[attribute|=value]</code>的分隔符，
+所以最好的坚持使用连字符作为分隔符。  </p>
+
+<h2>
+<a id="user-content-hacks" class="anchor" href="#hacks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hacks</h2>
+
+<p>避免用户代理检测以及CSS“hacks” – 首先尝试不同的方法。通过用户代理检测或特殊的CSS滤镜，变通的方法和 hacks 很容易解决样式差异。为了达到并保持一个有效的和可管理的代码库，这两种方法都应该被认为是最后的手段。换句话说，从长远来看，用户代理检测和hacks
+会伤害项目，作为项目往往应该采取阻力最小的途径。也就是说，轻易允许使用用户代理检测和hacks 以后将过于频繁。  </p>
+
+<h2>
+<a id="user-content-声明顺序" class="anchor" href="#%E5%A3%B0%E6%98%8E%E9%A1%BA%E5%BA%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>声明顺序</h2>
+
+<p>这是一个选择器内书写CSS属性顺序的大致轮廓。这是为了保证更好的可读性和可扫描重要。</p>
+
+<p>作为最佳实践，我们应该遵循以下顺序（应该按照下表的顺序）：</p>
+
+<ul>
+<li>结构性属性：
+
+<ol>
+<li>display</li>
+<li>position, left, top, right etc.</li>
+<li>overflow, float, clear etc.</li>
+<li>margin, padding</li>
+</ol>
+</li>
+<li>表现性属性：
+
+<ol>
+<li>background, border etc.</li>
+<li>font, text<br>
+</li>
+</ol>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-声明结束" class="anchor" href="#%E5%A3%B0%E6%98%8E%E7%BB%93%E6%9D%9F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>声明结束</h2>
+
+<p>为了保证一致性和可扩展性，每个声明应该用分号结束，每个声明换行。  </p>
+
+<h2>
+<a id="user-content-属性名结束" class="anchor" href="#%E5%B1%9E%E6%80%A7%E5%90%8D%E7%BB%93%E6%9D%9F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>属性名结束</h2>
+
+<p>属性名的冒号后使用一个空格。出于一致性的原因，
+属性和值（但属性和冒号之间没有空格）的之间始终使用一个空格。  </p>
+
+<h2>
+<a id="user-content-选择器和声明分离" class="anchor" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E5%92%8C%E5%A3%B0%E6%98%8E%E5%88%86%E7%A6%BB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>选择器和声明分离</h2>
+
+<p>每个选择器和属性声明总是使用新的一行。<br>
+如：  </p>
+
+<div class="highlight highlight-source-css"><pre>    <span class="pl-ent">h1</span>,
+    <span class="pl-ent">h2</span>,
+    <span class="pl-ent">h3</span> {
+      <span class="pl-c1"><span class="pl-c1">font-weight</span></span>: <span class="pl-c1">normal</span>;
+      <span class="pl-c1"><span class="pl-c1">line-height</span></span>: <span class="pl-c1">1.2</span>;
+    }</pre></div>
+
+<h2>
+<a id="user-content-css引号" class="anchor" href="#css%E5%BC%95%E5%8F%B7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CSS引号</h2>
+
+<p>属性选择器或属性值用双引号（””），而不是单引号（”）括起来。
+URI值（url()）不要使用引号。<br>
+如：  </p>
+
+<div class="highlight highlight-source-css"><pre>    <span class="pl-k">@import</span> <span class="pl-c1">url</span>(<span class="pl-v">//cdn.com/foundation.css</span>);
+
+    <span class="pl-ent">html</span> {
+      <span class="pl-c1"><span class="pl-c1">font-family</span></span>: <span class="pl-s"><span class="pl-pds">"</span>open sans<span class="pl-pds">"</span></span>, <span class="pl-c1">arial</span>, <span class="pl-c1">sans-serif</span>;
+    }
+
+    <span class="pl-ent">body</span><span class="pl-e">:after</span> {
+      <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">"</span>pause<span class="pl-pds">"</span></span>;
+    }</pre></div>
+
+<h2>
+<a id="user-content-z-index" class="anchor" href="#z-index" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>z-index</h2>
+
+<ol>
+<li><p>自己写的z-index的值<strong>不能超过 100</strong> (通用组的除外)  </p></li>
+<li><p>页面中的元素内容的z-index不能超过10(popup poptip除外)，需要按照内容定义1 2 3 4不允许直接使用如1000，9999  </p></li>
+<li><p>popup poptip的z-index需要按照内容使用 99以下，10以上的值（11,12,13，也可以小于10），不允许直接使用1000，9999之类大值  </p></li>
+</ol>
+
+<h2>
+<a id="user-content-css写法" class="anchor" href="#css%E5%86%99%E6%B3%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>css写法</h2>
+
+<ol>
+<li>小图片（必须）sprite 合并</li>
+<li>禁止将样式写为单行(单行显示不好注释，不好备注)</li>
+<li>禁止使用行内（inline）样式</li>
+<li>禁止使用"*"来选择元素<br>
+
+<ul>
+<li>这样写是没有必要的，一些元素在浏览器中默认有margin或padding值，但是只是部分元素，没有必要将所有元素的margin、padding值都置为0。</li>
+</ul>
+</li>
+<li>带前缀的属性<br>
+
+<ul>
+<li>当使用特定浏览器带有前缀的属性时，通过缩进的方式，让每个属性的值在垂直方向对齐，这样便于多行编辑。如：</li>
+</ul>
+
+<div class="highlight highlight-source-css"><pre>    <span class="pl-e">.selector</span> {
+      <span class="pl-c1">-webkit-<span class="pl-c1">box-shadow</span></span>: <span class="pl-c1">0</span> <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">2<span class="pl-k">px</span></span> <span class="pl-c1">rgba</span>(<span class="pl-c1">0,0,0,.15</span>);
+              <span class="pl-c1"><span class="pl-c1">box-shadow</span></span>: <span class="pl-c1">0</span> <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">2<span class="pl-k">px</span></span> <span class="pl-c1">rgba</span>(<span class="pl-c1">0,0,0,.15</span>);
+    }</pre></div>
+</li>
+</ol>
+
+<h2>
+<a id="user-content-选择器嵌套-scss" class="anchor" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E5%B5%8C%E5%A5%97-scss" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>选择器嵌套 (SCSS)</h2>
+
+<p>嵌套所有的选择器，但尽量避免嵌套没有任何内容的选择器。<br>
+如：  </p>
+
+<div class="highlight highlight-source-css"><pre>    // This example takes the best approach while nesting but use selector chains where possible
+    <span class="pl-e">.content</span> {
+      <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
+
+      &gt; .<span class="pl-c1">news-article</span> &gt; .<span class="pl-c1">title</span> {
+        <span class="pl-c1"><span class="pl-c1">font-size</span></span>: <span class="pl-c1">1.2<span class="pl-k">em</span></span>;
+      }
+    }</pre></div>
+
+<h2>
+<a id="user-content-嵌套中引入空行-scss" class="anchor" href="#%E5%B5%8C%E5%A5%97%E4%B8%AD%E5%BC%95%E5%85%A5%E7%A9%BA%E8%A1%8C-scss" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>嵌套中引入空行 (SCSS)</h2>
+
+<p>嵌套选择器和CSS属性之间空一行。<br>
+如：  </p>
+
+<div class="highlight highlight-source-css"><pre>    <span class="pl-e">.content</span> {
+      <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
+
+      &gt; .<span class="pl-c1">news-article</span> {
+        <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">#eee</span>;
+
+        &gt; .<span class="pl-c1">title</span> {
+          <span class="pl-c1"><span class="pl-c1">font-size</span></span>: <span class="pl-c1">1.2<span class="pl-k">em</span></span>;
+        }
+
+        &gt; <span class="pl-e">.article-footnote</span> {
+          <span class="pl-c1"><span class="pl-c1">font-size</span></span>: <span class="pl-c1">0.8<span class="pl-k">em</span></span>;
+        }
+      }
+    }</pre></div>
+
+<h2>
+<a id="user-content-上下文媒体查询scss" class="anchor" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2scss" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>上下文媒体查询(SCSS)</h2>
+
+<p>在Sass中，当你嵌套你的选择器时也可以使用上下文媒体查询。
+在Sass中，你可以在任何给定的嵌套层次中使用媒体查询。
+由此生成的CSS将被转换，这样的媒体查询将包裹选择器的形式呈现。</p>
+
+<p>这技术非常方便，
+有助于保持媒体查询属于的上下文。</p>
+
+<p>第一种方法这可以让你先写你的手机样式，然后在任何你需要的地方
+用上下文媒体查询以提供桌面样式。  </p>
+
+<div class="highlight highlight-source-css"><pre>    // This is the same example as above but here we use contextual media queries in order to put the different styles
+    // for different media into the right context.
+
+    <span class="pl-e">.content-page</span> {
+      <span class="pl-c1"><span class="pl-c1">font-size</span></span>: <span class="pl-c1">1.2<span class="pl-k">rem</span></span>;
+
+      @<span class="pl-c1">media</span> <span class="pl-c1">screen</span> <span class="pl-c1">and</span> (<span class="pl-c1"><span class="pl-c1">min-width</span></span>: <span class="pl-c1">641<span class="pl-k">px</span></span>) {
+        font-size: <span class="pl-c1">1<span class="pl-k">rem</span></span>;
+      }
+
+      &gt; <span class="pl-e">.main</span> {
+        <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-id">whitesmoke</span>;
+
+        &gt; .<span class="pl-c1">latest-news</span> {
+          <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">1<span class="pl-k">rem</span></span>;
+
+          &gt; .<span class="pl-c1">news-article</span> {
+            <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">1<span class="pl-k">rem</span></span>;
+
+            &gt; .<span class="pl-c1">title</span> {
+              <span class="pl-c1"><span class="pl-c1">font-size</span></span>: <span class="pl-c1">2<span class="pl-k">rem</span></span>;
+
+              @<span class="pl-c1">media</span> <span class="pl-c1">screen</span> <span class="pl-c1">and</span> (<span class="pl-c1"><span class="pl-c1">min-width</span></span>: <span class="pl-c1">641<span class="pl-k">px</span></span>) {
+                font-size: <span class="pl-c1">3<span class="pl-k">rem</span></span>;
+              }
+            }
+          }
+        }
+
+        &gt; <span class="pl-e">.content</span> {
+          <span class="pl-c1"><span class="pl-c1">margin-top</span></span>: <span class="pl-c1">2<span class="pl-k">rem</span></span>;
+          <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">1<span class="pl-k">rem</span></span>;
+        }
+      }
+
+      &gt; <span class="pl-e">.page-footer</span> {
+        <span class="pl-c1"><span class="pl-c1">margin-top</span></span>: <span class="pl-c1">2<span class="pl-k">rem</span></span>;
+        <span class="pl-c1"><span class="pl-c1">font-size</span></span>: <span class="pl-c1">1<span class="pl-k">rem</span></span>;
+
+        @<span class="pl-c1">media</span> <span class="pl-c1">screen</span> <span class="pl-c1">and</span> (<span class="pl-c1"><span class="pl-c1">min-width</span></span>: <span class="pl-c1">641<span class="pl-k">px</span></span>) {
+          font-size: <span class="pl-c1">0.8<span class="pl-k">rem</span></span>;
+        }
+      }
+    }</pre></div>
+
+<h2>
+<a id="user-content-嵌套顺序和父级选择器scss" class="anchor" href="#%E5%B5%8C%E5%A5%97%E9%A1%BA%E5%BA%8F%E5%92%8C%E7%88%B6%E7%BA%A7%E9%80%89%E6%8B%A9%E5%99%A8scss" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>嵌套顺序和父级选择器(SCSS)</h2>
+
+<p>当使用Sass的嵌套功能的时候，
+重要的是有一个明确的嵌套顺序，
+以下内容是一个SCSS块应具有的顺序。</p>
+
+<ol>
+<li>当前选择器的样式属性</li>
+<li>父级选择器的伪类选择器 (:first-letter, :hover, :active etc)</li>
+<li>伪类元素 (:before and :after)</li>
+<li>父级选择器的声明样式 (.selected, .active, .enlarged etc.)</li>
+<li>用Sass的上下文媒体查询</li>
+<li>子选择器作为最后的部分<br>
+</li>
+</ol>
+
+<div class="highlight highlight-source-css"><pre>    <span class="pl-e">.product-teaser</span> {
+      // 1. S<span class="pl-c1">tyle</span> <span class="pl-c1">attributes</span>
+      <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">inline-block</span>;
+      <span class="pl-c1"><span class="pl-c1">padding</span></span>: <span class="pl-c1">1<span class="pl-k">rem</span></span>;
+      <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-id">whitesmoke</span>;
+      <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-id">grey</span>;
+
+      // 2. P<span class="pl-c1">seudo</span> <span class="pl-c1">selectors</span> <span class="pl-c1">with</span> <span class="pl-c1">parent</span> <span class="pl-c1">selector</span>
+      &amp;:hover {
+        color: <span class="pl-c1">black</span>;
+      }
+
+      // 3. Pseudo elements with parent selector
+      &amp;<span class="pl-e">:before</span> {
+        <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>;
+        <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
+        <span class="pl-c1"><span class="pl-c1">border-top</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-id">grey</span>;
+      }
+
+      &amp;<span class="pl-e">:after</span> {
+        <span class="pl-c1"><span class="pl-c1">content</span></span>: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>;
+        <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
+        <span class="pl-c1"><span class="pl-c1">border-top</span></span>: <span class="pl-c1">1<span class="pl-k">px</span></span> <span class="pl-c1">solid</span> <span class="pl-id">grey</span>;
+      }
+
+      // 4. State classes with parent selector
+      &amp;<span class="pl-e">.active</span> {
+        <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-id">pink</span>;
+        <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">red</span>;
+
+        // 4.2. P<span class="pl-c1">seuso</span> <span class="pl-c1">selector</span> <span class="pl-c1">in</span> <span class="pl-c1">state</span> <span class="pl-c1">class</span> <span class="pl-c1">selector</span>
+        &amp;:hover {
+          color: <span class="pl-id">darkred</span>;
+        }
+      }
+
+      // 5. Contextual media queries
+      @media screen and (max-width: 640px) {
+        <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
+        <span class="pl-c1"><span class="pl-c1">font-size</span></span>: <span class="pl-c1">2<span class="pl-k">em</span></span>;
+      }
+
+      // 6. Sub selectors
+      &gt; <span class="pl-e">.content</span> &gt; <span class="pl-e">.title</span> {
+        <span class="pl-c1"><span class="pl-c1">font-size</span></span>: <span class="pl-c1">1.2<span class="pl-k">em</span></span>;
+
+        // 6.5. C<span class="pl-c1">ontextual</span> <span class="pl-c1">media</span> <span class="pl-c1">queries</span> <span class="pl-c1">in</span> <span class="pl-c1">sub</span> <span class="pl-c1">selector</span>
+        @<span class="pl-c1">media</span> <span class="pl-c1">screen</span> <span class="pl-c1">and</span> (<span class="pl-c1"><span class="pl-c1">max-width</span></span>: <span class="pl-c1">640<span class="pl-k">px</span></span>) {
+          letter-spacing: <span class="pl-c1">0.2<span class="pl-k">em</span></span>;
+          <span class="pl-c1"><span class="pl-c1">text-transform</span></span>: <span class="pl-c1">uppercase</span>;
+        }
+      }
+    }</pre></div>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
+
+<h1>
+<a id="user-content-js规范" class="anchor" href="#js%E8%A7%84%E8%8C%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>js规范</h1>
+
+<hr>
+
+<h2>
+<a id="user-content-全局命名空间污染与-iife" class="anchor" href="#%E5%85%A8%E5%B1%80%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E6%B1%A1%E6%9F%93%E4%B8%8E-iife" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>全局命名空间污染与 IIFE</h2>
+
+<p>总是将代码包裹成一个 IIFE(Immediately-Invoked Function Expression)，用以创建独立隔绝的定义域。这一举措可防止全局命名空间被污染。  </p>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> x <span class="pl-k">=</span> <span class="pl-c1">10</span>,
+    y <span class="pl-k">=</span> <span class="pl-c1">100</span>;
+
+    <span class="pl-c">// Declaring variables in the global scope is resulting in global scope pollution. All variables declared like this</span>
+    <span class="pl-c">// will be stored in the window object. This is very unclean and needs to be avoided.</span>
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-c1">window</span>.<span class="pl-c1">x</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-c1">window</span>.<span class="pl-c1">y</span>);</pre></div>
+
+<p><strong>推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-c">// We declare a IIFE and pass parameters into the function that we will use from the global space</span>
+    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>, <span class="pl-smi">w</span>, <span class="pl-c1">undefined</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-k">var</span> x <span class="pl-k">=</span> <span class="pl-c1">10</span>,
+          y <span class="pl-k">=</span> <span class="pl-c1">100</span>;
+
+      <span class="pl-c">// Will output 'true true'</span>
+      <span class="pl-en">log</span>((<span class="pl-smi">w</span>.<span class="pl-c1">x</span> <span class="pl-k">===</span> <span class="pl-c1">undefined</span>) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> <span class="pl-k">+</span> (<span class="pl-smi">w</span>.<span class="pl-c1">y</span> <span class="pl-k">===</span> <span class="pl-c1">undefined</span>));
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>, <span class="pl-c1">window</span>));</pre></div>
+
+<h2>
+<a id="user-content-iife立即执行的函数表达式" class="anchor" href="#iife%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E7%9A%84%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IIFE（立即执行的函数表达式）</h2>
+
+<p>无论何时，想要创建一个新的封闭的定义域，那就用 IIFE。它不仅避免了干扰，也使得内存在执行完后立即释放。</p>
+
+<p>所有脚本文件建议都从 IIFE 开始。</p>
+
+<p>立即执行的函数表达式的执行括号应该写在外包括号内。虽然写在内还是写在外都是有效的，但写在内使得整个表达式看起来更像一个整体，因此推荐这么做。  </p>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(){})();</pre></div>
+
+<p><strong>推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(){}());</pre></div>
+
+<p>如果你想引用全局变量或者是外层 IIFE 的变量，可以通过下列方式传参：  </p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">$</span>, <span class="pl-smi">w</span>, <span class="pl-smi">d</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-en">$</span>(<span class="pl-k">function</span>() {
+        <span class="pl-smi">w</span>.<span class="pl-c1">alert</span>(<span class="pl-smi">d</span>.<span class="pl-en">querySelectorAll</span>(<span class="pl-s"><span class="pl-pds">'</span>div<span class="pl-pds">'</span></span>).<span class="pl-c1">length</span>);
+      });
+    }(jQuery, <span class="pl-c1">window</span>, <span class="pl-c1">document</span>));</pre></div>
+
+<h2>
+<a id="user-content-严格模式" class="anchor" href="#%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>严格模式</h2>
+
+<p>ECMAScript 5 严格模式可在整个脚本或独个方法内被激活。它对应不同的 javascript 语境会做更加严格的错误检查。严格模式也确保了 javascript 代码更加的健壮，运行的也更加快速。</p>
+
+<p>严格模式会阻止使用在未来很可能被引入的预留关键字。</p>
+
+<p>你应该在你的脚本中启用严格模式，最好是在独立的 IIFE 中应用它。避免在你的脚本第一行使用它而导致你的所有脚本都启动了严格模式，这有可能会引发一些第三方类库的问题。  </p>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-c">// Script starts here</span>
+    <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+    (<span class="pl-k">function</span>(){
+
+      <span class="pl-c">// Your code starts here</span>
+
+    }());</pre></div>
+
+<p><strong>推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-c">// Your code starts here</span>
+
+    }());</pre></div>
+
+<h2>
+<a id="user-content-变量声明" class="anchor" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>变量声明</h2>
+
+<p>总是使用 <code>var</code> 来声明变量。如不指定 <code>var</code>，变量将被隐式地声明为全局变量，这将对变量难以控制。如果没有声明，变量处于什么定义域就变得不清（可以是在 Document 或 Window 中，也可以很容易地进入本地定义域）。所以，请总是使用 <code>var</code> 来声明变量。</p>
+
+<p>采用严格模式带来的好处是，当你手误输入错误的变量名时，它可以通过报错信息来帮助你定位错误出处。  </p>
+
+<h2>
+<a id="user-content-理解-javascript-的定义域和定义域提升" class="anchor" href="#%E7%90%86%E8%A7%A3-javascript-%E7%9A%84%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%92%8C%E5%AE%9A%E4%B9%89%E5%9F%9F%E6%8F%90%E5%8D%87" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>理解 JavaScript 的定义域和定义域提升</h2>
+
+<p>在 JavaScript 中变量和方法定义会自动提升到执行之前。JavaScript 只有 function 级的定义域，而无其他很多编程语言中的块定义域，所以使得你在某一 function 内的某语句和循环体中定义了一个变量，此变量可作用于整个 function 内，而不仅仅是在此语句或循环体中，因为它们的声明被 JavaScript 自动提升了。  </p>
+
+<p>为避免变量和方法定义被自动提升造成误解，把风险降到最低，我们应该手动地显示地去声明变量与方法。也就是说，所有的变量以及方法，应当定义在 function 内的首行。只用一个 <code>var</code> 关键字声明，多个变量用逗号隔开。  </p>
+
+<p>把赋值尽量写在变量申明中。  </p>
+
+<h2>
+<a id="user-content-总是使用带类型判断的比较判断" class="anchor" href="#%E6%80%BB%E6%98%AF%E4%BD%BF%E7%94%A8%E5%B8%A6%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD%E7%9A%84%E6%AF%94%E8%BE%83%E5%88%A4%E6%96%AD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>总是使用带类型判断的比较判断</h2>
+
+<p>总是使用 <code>===</code> 精确的比较操作符，避免在判断的过程中，由 JavaScript 的强制类型转换所造成的困扰。</p>
+
+<p>如果你使用 <code>===</code> 操作符，那比较的双方必须是同一类型为前提的条件下才会有效。  </p>
+
+<p>在只使用 <code>==</code> 的情况下，JavaScript 所带来的强制类型转换使得判断结果跟踪变得复杂。  </p>
+
+<h2>
+<a id="user-content-明智地使用真假判断" class="anchor" href="#%E6%98%8E%E6%99%BA%E5%9C%B0%E4%BD%BF%E7%94%A8%E7%9C%9F%E5%81%87%E5%88%A4%E6%96%AD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>明智地使用真假判断</h2>
+
+<p>当我们在一个 if 条件语句中使用变量或表达式时，会做真假判断。<code>if(a == true)</code> 是不同于 <code>if(a)</code> 的。后者的判断比较特殊，我们称其为真假判断。这种判断会通过特殊的操作将其转换为 true 或 false，下列表达式统统返回 false：<code>false</code>, <code>0</code>, <code>undefined</code>, <code>null</code>, <code>NaN</code>, <code>''</code>（空字符串）.</p>
+
+<p>这种真假判断在我们只求结果而不关心过程的情况下，非常的有帮助。  </p>
+
+<p>以下示例展示了真假判断是如何工作的：  </p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-k">function</span> <span class="pl-en">logTruthyFalsy</span>(<span class="pl-smi">expr</span>) {
+        <span class="pl-k">if</span>(expr) {
+          <span class="pl-en">log</span>(<span class="pl-s"><span class="pl-pds">'</span>truthy<span class="pl-pds">'</span></span>);
+        } <span class="pl-k">else</span> {
+          <span class="pl-en">log</span>(<span class="pl-s"><span class="pl-pds">'</span>falsy<span class="pl-pds">'</span></span>);
+        }
+      }
+
+      <span class="pl-en">logTruthyFalsy</span>(<span class="pl-c1">true</span>); <span class="pl-c">// truthy</span>
+      <span class="pl-en">logTruthyFalsy</span>(<span class="pl-c1">1</span>); <span class="pl-c">// truthy</span>
+      <span class="pl-en">logTruthyFalsy</span>({}); <span class="pl-c">// truthy</span>
+      <span class="pl-en">logTruthyFalsy</span>([]); <span class="pl-c">// truthy</span>
+      <span class="pl-en">logTruthyFalsy</span>(<span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span>); <span class="pl-c">// truthy</span>
+
+      <span class="pl-en">logTruthyFalsy</span>(<span class="pl-c1">false</span>); <span class="pl-c">// falsy</span>
+      <span class="pl-en">logTruthyFalsy</span>(<span class="pl-c1">0</span>); <span class="pl-c">// falsy</span>
+      <span class="pl-en">logTruthyFalsy</span>(<span class="pl-c1">undefined</span>); <span class="pl-c">// falsy</span>
+      <span class="pl-en">logTruthyFalsy</span>(<span class="pl-c1">null</span>); <span class="pl-c">// falsy</span>
+      <span class="pl-en">logTruthyFalsy</span>(<span class="pl-c1">NaN</span>); <span class="pl-c">// falsy</span>
+      <span class="pl-en">logTruthyFalsy</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>); <span class="pl-c">// falsy</span>
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>));</pre></div>
+
+<h2>
+<a id="user-content-变量赋值时的逻辑操作" class="anchor" href="#%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC%E6%97%B6%E7%9A%84%E9%80%BB%E8%BE%91%E6%93%8D%E4%BD%9C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>变量赋值时的逻辑操作</h2>
+
+<p>逻辑操作符 || 和 &amp;&amp; 也可被用来返回布尔值。如果操作对象为非布尔对象，那每个表达式将会被自左向右地做真假判断。基于此操作，最终总有一个表达式被返回回来。这在变量赋值时，是可以用来简化你的代码的。 </p>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">if</span>(<span class="pl-k">!</span>x) {
+      <span class="pl-k">if</span>(<span class="pl-k">!</span>y) {
+        x <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+      } <span class="pl-k">else</span> {
+        x <span class="pl-k">=</span> y;
+      }
+    }</pre></div>
+
+<p><strong>推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    x <span class="pl-k">=</span> x <span class="pl-k">||</span> y <span class="pl-k">||</span> <span class="pl-c1">1</span>;</pre></div>
+
+<p>这一小技巧经常用来给方法设定默认的参数。  </p>
+
+<h2>
+<a id="user-content-分号" class="anchor" href="#%E5%88%86%E5%8F%B7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>分号</h2>
+
+<p>总是使用分号，因为隐式的代码嵌套会引发难以察觉的问题。  </p>
+
+<h3>
+<a id="user-content-澄清分号与函数" class="anchor" href="#%E6%BE%84%E6%B8%85%E5%88%86%E5%8F%B7%E4%B8%8E%E5%87%BD%E6%95%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>澄清：分号与函数</h3>
+
+<p>分号需要用在表达式的结尾，而并非函数声明的结尾。区分它们最好的例子是：  </p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> <span class="pl-en">foo</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+      <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+    };  <span class="pl-c">// semicolon here.</span>
+
+    <span class="pl-k">function</span> <span class="pl-en">foo</span>() {
+      <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+    }  <span class="pl-c">// no semicolon here.</span></pre></div>
+
+<h2>
+<a id="user-content-嵌套函数" class="anchor" href="#%E5%B5%8C%E5%A5%97%E5%87%BD%E6%95%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>嵌套函数</h2>
+
+<p>嵌套函数是非常有用的，比如用在持续创建和隐藏辅助函数的任务中。你可以非常自由随意地使用它们。  </p>
+
+<h2>
+<a id="user-content-语句块内的函数声明" class="anchor" href="#%E8%AF%AD%E5%8F%A5%E5%9D%97%E5%86%85%E7%9A%84%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>语句块内的函数声明</h2>
+
+<p>切勿在语句块内声明函数，在 ECMAScript 5 的严格模式下，这是不合法的。函数声明应该在定义域的顶层。但在语句块内可将函数申明转化为函数表达式赋值给变量。  </p>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">if</span> (x) {
+      <span class="pl-k">function</span> <span class="pl-en">foo</span>() {}
+    }  </pre></div>
+
+<p><strong>推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">if</span> (x) {
+      <span class="pl-k">var</span> <span class="pl-en">foo</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {};
+    }</pre></div>
+
+<h2>
+<a id="user-content-异常" class="anchor" href="#%E5%BC%82%E5%B8%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>异常</h2>
+
+<p>基本上你无法避免出现异常，特别是在做大型开发时（使用应用开发框架等等）。</p>
+
+<p>在没有自定义异常的情况下，从有返回值的函数中返回错误信息一定非常的棘手，更别提多不优雅了。不好的解决方案包括了传第一个引用类型来接纳错误信息，或总是返回一个对象列表，其中包含着可能的错误对象。以上方式基本上是比较简陋的异常处理方式。适时可做自定义异常处理。</p>
+
+<p>在复杂的环境中，你可以考虑抛出对象而不仅仅是字符串（默认的抛出值）。  </p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">if</span>(name <span class="pl-k">===</span> <span class="pl-c1">undefined</span>) {
+      <span class="pl-k">throw</span> {
+        name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>System Error<span class="pl-pds">'</span></span>,
+        message<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>A name should always be specified!<span class="pl-pds">'</span></span>
+      }
+    }</pre></div>
+
+<h2>
+<a id="user-content-标准特性" class="anchor" href="#%E6%A0%87%E5%87%86%E7%89%B9%E6%80%A7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>标准特性</h2>
+
+<p>总是优先考虑使用标准特性。为了最大限度地保证扩展性与兼容性，总是首选标准的特性，而不是非标准的特性（例如：首选 <code>string.charAt(3)</code> 而不是 <code>string[3]</code>；首选 DOM 的操作方法来获得元素引用，而不是某一应用特定的快捷方法）。  </p>
+
+<h2>
+<a id="user-content-简易的原型继承" class="anchor" href="#%E7%AE%80%E6%98%93%E7%9A%84%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>简易的原型继承</h2>
+
+<p>如果你想在 JavaScript 中继承你的对象，请遵循一个简易的模式来创建此继承。如果你预计你会遇上复杂对象的继承，那可以考虑采用一个继承库，比如 <a href="https://github.com/rauschma/proto-js">Proto.js by Axel Rauschmayer</a>.</p>
+
+<p>简易继承请用以下方式：  </p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-c">// Constructor function</span>
+      <span class="pl-k">function</span> <span class="pl-en">Apple</span>(<span class="pl-smi">name</span>) {
+        <span class="pl-v">this</span>.<span class="pl-c1">name</span> <span class="pl-k">=</span> name;
+      }
+      <span class="pl-c">// Defining a method of apple</span>
+      <span class="pl-smi">Apple</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">eat</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+        <span class="pl-en">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Eating <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-v">this</span>.<span class="pl-c1">name</span>);
+      };
+
+      <span class="pl-c">// Constructor function</span>
+      <span class="pl-k">function</span> <span class="pl-en">GrannySmithApple</span>() {
+        <span class="pl-c">// Invoking parent constructor</span>
+        <span class="pl-smi">Apple</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">constructor</span>.<span class="pl-c1">call</span>(<span class="pl-v">this</span>, <span class="pl-s"><span class="pl-pds">'</span>Granny Smith<span class="pl-pds">'</span></span>);
+      }
+      <span class="pl-c">// Set parent prototype while creating a copy with Object.create</span>
+      <span class="pl-smi">GrannySmithApple</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> <span class="pl-c1">Object</span>.<span class="pl-en">create</span>(<span class="pl-smi">Apple</span>.<span class="pl-c1">prototype</span>);
+      <span class="pl-c">// Set constructor to the sub type, otherwise points to Apple</span>
+      <span class="pl-smi">GrannySmithApple</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">constructor</span> <span class="pl-k">=</span> GrannySmithApple;
+
+      <span class="pl-c">// Calling a super method</span>
+      <span class="pl-smi">GrannySmithApple</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">eat</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {
+        <span class="pl-c">// Be sure to apply it onto our current object with call(this)</span>
+        <span class="pl-smi">Apple</span>.<span class="pl-c1">prototype</span>.<span class="pl-smi">eat</span>.<span class="pl-c1">call</span>(<span class="pl-v">this</span>);
+
+        <span class="pl-en">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Poor Grany Smith<span class="pl-pds">'</span></span>);
+      };
+
+      <span class="pl-c">// Instantiation</span>
+      <span class="pl-k">var</span> apple <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Apple</span>(<span class="pl-s"><span class="pl-pds">'</span>Test Apple<span class="pl-pds">'</span></span>);
+      <span class="pl-k">var</span> grannyApple <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">GrannySmithApple</span>();
+
+      <span class="pl-en">log</span>(<span class="pl-smi">apple</span>.<span class="pl-c1">name</span>); <span class="pl-c">// Test Apple</span>
+      <span class="pl-en">log</span>(<span class="pl-smi">grannyApple</span>.<span class="pl-c1">name</span>); <span class="pl-c">// Granny Smith</span>
+
+      <span class="pl-c">// Instance checks</span>
+      <span class="pl-en">log</span>(apple <span class="pl-k">instanceof</span> Apple); <span class="pl-c">// true</span>
+      <span class="pl-en">log</span>(apple <span class="pl-k">instanceof</span> GrannySmithApple); <span class="pl-c">// false</span>
+
+      <span class="pl-en">log</span>(grannyApple <span class="pl-k">instanceof</span> Apple); <span class="pl-c">// true</span>
+      <span class="pl-en">log</span>(grannyApple <span class="pl-k">instanceof</span> GrannySmithApple); <span class="pl-c">// true</span>
+
+      <span class="pl-c">// Calling method that calls super method</span>
+      <span class="pl-smi">grannyApple</span>.<span class="pl-en">eat</span>(); <span class="pl-c">// Eating Granny Smith\nPoor Grany Smith</span>
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>));</pre></div>
+
+<h2>
+<a id="user-content-使用闭包" class="anchor" href="#%E4%BD%BF%E7%94%A8%E9%97%AD%E5%8C%85" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用闭包</h2>
+
+<p>闭包的创建也许是 JS 最有用也是最易被忽略的能力了。<a href="http://jibbering.com/faq/faq_notes/closures.html">关于闭包如何工作的合理解释</a>。  </p>
+
+<h2>
+<a id="user-content-切勿在循环中创建函数" class="anchor" href="#%E5%88%87%E5%8B%BF%E5%9C%A8%E5%BE%AA%E7%8E%AF%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%87%BD%E6%95%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>切勿在循环中创建函数</h2>
+
+<p>在简单的循环语句中加入函数是非常容易形成闭包而带来隐患的。下面的例子就是一个典型的陷阱：  </p>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>, <span class="pl-smi">w</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-c">// numbers and i is defined in the current function closure</span>
+      <span class="pl-k">var</span> numbers <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>],
+          i;
+
+      <span class="pl-k">for</span>(i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-smi">numbers</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {
+        <span class="pl-smi">w</span>.<span class="pl-en">setTimeout</span>(<span class="pl-k">function</span>() {
+          <span class="pl-c">// At the moment when this gets executed the i variable, coming from the outer function scope</span>
+          <span class="pl-c">// is set to 3 and the current program is alerting the message 3 times</span>
+          <span class="pl-c">// 'Index 3 with number undefined</span>
+          <span class="pl-c">// If you understand closures in javascript you know how to deal with those cases</span>
+          <span class="pl-c">// It's best to just avoid functions / new closures in loops as this prevents those issues</span>
+
+          <span class="pl-smi">w</span>.<span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>Index <span class="pl-pds">'</span></span> <span class="pl-k">+</span> i <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> with number <span class="pl-pds">'</span></span> <span class="pl-k">+</span> numbers[i]);
+        }, <span class="pl-c1">0</span>);
+      }
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>, <span class="pl-c1">window</span>));</pre></div>
+
+<p>接下来的改进虽然已经解决了上述例子中的问题或 bug，但还是违反了不在循环中创建函数或闭包的原则。   </p>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>, <span class="pl-smi">w</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-c">// numbers and i is defined in the current function closure</span>
+      <span class="pl-k">var</span> numbers <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>],
+          i;
+
+      <span class="pl-k">for</span>(i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-smi">numbers</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {
+        <span class="pl-c">// Creating a new closure scope with an IIFE solves the problem</span>
+        <span class="pl-c">// The delayed function will use index and number which are</span>
+        <span class="pl-c">// in their own closure scope (one closure per loop iteration).</span>
+        <span class="pl-c">// ---</span>
+        <span class="pl-c">// Still this is not recommended as we violate our rule to not</span>
+        <span class="pl-c">// create functions within loops and we are creating two!</span>
+
+        (<span class="pl-k">function</span>(<span class="pl-smi">index</span>, <span class="pl-smi">number</span>){
+          <span class="pl-smi">w</span>.<span class="pl-en">setTimeout</span>(<span class="pl-k">function</span>() {
+            <span class="pl-c">// Will output as expected 0 &gt; 1, 1 &gt; 2, 2 &gt; 3</span>
+            <span class="pl-smi">w</span>.<span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>Index <span class="pl-pds">'</span></span> <span class="pl-k">+</span> index <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> with number <span class="pl-pds">'</span></span> <span class="pl-k">+</span> number);
+          }, <span class="pl-c1">0</span>);
+        }(i, numbers[i]));
+      }
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>, <span class="pl-c1">window</span>));</pre></div>
+
+<p>接下来的改进已解决问题，而且也遵循了规范。可是，你会发现看上去似乎过于复杂繁冗了，应该会有更好的解决方案吧。  </p>
+
+<p><strong>不完全推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>, <span class="pl-smi">w</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-c">// numbers and i is defined in the current function closure</span>
+      <span class="pl-k">var</span> numbers <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>],
+          i;
+
+      <span class="pl-c">// Create a function outside of the loop that will accept arguments to create a</span>
+      <span class="pl-c">// function closure scope. This function will return a function that executes in this</span>
+      <span class="pl-c">// closure parent scope.</span>
+      <span class="pl-k">function</span> <span class="pl-en">alertIndexWithNumber</span>(<span class="pl-smi">index</span>, <span class="pl-smi">number</span>) {
+        <span class="pl-k">return</span> <span class="pl-k">function</span>() {
+          <span class="pl-smi">w</span>.<span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>Index <span class="pl-pds">'</span></span> <span class="pl-k">+</span> index <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> with number <span class="pl-pds">'</span></span> <span class="pl-k">+</span> number);
+        };
+      }
+
+      <span class="pl-c">// First parameter is a function call that returns a function.</span>
+      <span class="pl-c">// ---</span>
+      <span class="pl-c">// This solves our problem and we don't create a function inside our loop</span>
+      <span class="pl-k">for</span>(i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-smi">numbers</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {
+        <span class="pl-smi">w</span>.<span class="pl-en">setTimeout</span>(<span class="pl-en">alertIndexWithNumber</span>(i, numbers[i]), <span class="pl-c1">0</span>);
+      }
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>, <span class="pl-c1">window</span>));</pre></div>
+
+<p>将循环语句转换为函数执行的方式问题能得到立马解决，每一次循环都会对应地创建一次闭包。函数式的风格更加值得推荐，而且看上去也更加地自然和可预料。   </p>
+
+<p><strong>推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>, <span class="pl-smi">w</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-c">// numbers and i is defined in the current function closure</span>
+      <span class="pl-k">var</span> numbers <span class="pl-k">=</span> [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>],
+          i;
+
+      <span class="pl-smi">numbers</span>.<span class="pl-en">forEach</span>(<span class="pl-k">function</span>(<span class="pl-smi">number</span>, <span class="pl-smi">index</span>) {
+        <span class="pl-smi">w</span>.<span class="pl-en">setTimeout</span>(<span class="pl-k">function</span>() {
+          <span class="pl-smi">w</span>.<span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>Index <span class="pl-pds">'</span></span> <span class="pl-k">+</span> index <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> with number <span class="pl-pds">'</span></span> <span class="pl-k">+</span> number);
+        }, <span class="pl-c1">0</span>);
+      });
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>, <span class="pl-c1">window</span>));</pre></div>
+
+<h2>
+<a id="user-content-eval-函数魔鬼" class="anchor" href="#eval-%E5%87%BD%E6%95%B0%E9%AD%94%E9%AC%BC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>eval 函数（魔鬼）</h2>
+
+<p><code>eval()</code> 不但混淆语境还很危险，总会有比这更好、更清晰、更安全的另一种方案来写你的代码，因此尽量不要使用 evil 函数。  </p>
+
+<h2>
+<a id="user-content-this-关键字" class="anchor" href="#this-%E5%85%B3%E9%94%AE%E5%AD%97" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>this 关键字</h2>
+
+<p>只在对象构造器、方法和在设定的闭包中使用 this 关键字。this 的语义在此有些误导。它时而指向全局对象（大多数时），时而指向调用者的定义域（在 eval 中），时而指向 DOM 树中的某一节点（当用事件处理绑定到 HTML 属性上时），时而指向一个新创建的对象（在构造器中），还时而指向其它的一些对象（如果函数被 <code>call()</code> 和 <code>apply()</code> 执行和调用时）。  </p>
+
+<p>正因为它是如此容易地被搞错，请限制它的使用场景：</p>
+
+<ul>
+<li>在构造函数中</li>
+<li>在对象的方法中（包括由此创建出的闭包内）<br>
+</li>
+</ul>
+
+<h2>
+<a id="user-content-首选函数式风格" class="anchor" href="#%E9%A6%96%E9%80%89%E5%87%BD%E6%95%B0%E5%BC%8F%E9%A3%8E%E6%A0%BC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>首选函数式风格</h2>
+
+<p>函数式编程让你可以简化代码并缩减维护成本，因为它容易复用，又适当地解耦和更少的依赖。</p>
+
+<p>接下来的例子中，在一组数字求和的同一问题上，比较了两种解决方案。第一个例子是经典的程序处理，而第二个例子则是采用了函数式编程和 ECMA Script 5.1 的数组方法。</p>
+
+<p>例外：往往在重代码性能轻代码维护的情况之下，要选择最优性能的解决方案而非维护性高的方案（比如用简单的循环语句代替 forEach）。  </p>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-k">var</span> arr <span class="pl-k">=</span> [<span class="pl-c1">10</span>, <span class="pl-c1">3</span>, <span class="pl-c1">7</span>, <span class="pl-c1">9</span>, <span class="pl-c1">100</span>, <span class="pl-c1">20</span>],
+          sum <span class="pl-k">=</span> <span class="pl-c1">0</span>,
+          i;
+
+
+      <span class="pl-k">for</span>(i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-smi">arr</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {
+        sum <span class="pl-k">+=</span> arr[i];
+      }
+
+      <span class="pl-en">log</span>(<span class="pl-s"><span class="pl-pds">'</span>The sum of array <span class="pl-pds">'</span></span> <span class="pl-k">+</span> arr <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> is: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> sum)
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>));</pre></div>
+
+<p><strong>推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-k">var</span> arr <span class="pl-k">=</span> [<span class="pl-c1">10</span>, <span class="pl-c1">3</span>, <span class="pl-c1">7</span>, <span class="pl-c1">9</span>, <span class="pl-c1">100</span>, <span class="pl-c1">20</span>];
+
+      <span class="pl-k">var</span> sum <span class="pl-k">=</span> <span class="pl-smi">arr</span>.<span class="pl-en">reduce</span>(<span class="pl-k">function</span>(<span class="pl-smi">prevValue</span>, <span class="pl-smi">currentValue</span>) {
+        <span class="pl-k">return</span> prevValue <span class="pl-k">+</span> currentValue;
+      }, <span class="pl-c1">0</span>);
+
+      <span class="pl-en">log</span>(<span class="pl-s"><span class="pl-pds">'</span>The sum of array <span class="pl-pds">'</span></span> <span class="pl-k">+</span> arr <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> is: <span class="pl-pds">'</span></span> <span class="pl-k">+</span> sum);
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>));</pre></div>
+
+<p>另一个例子通过某一规则对一个数组进行过滤匹配来创建一个新的数组。  </p>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-k">var</span> numbers <span class="pl-k">=</span> [<span class="pl-c1">11</span>, <span class="pl-c1">3</span>, <span class="pl-c1">7</span>, <span class="pl-c1">9</span>, <span class="pl-c1">100</span>, <span class="pl-c1">20</span>, <span class="pl-c1">14</span>, <span class="pl-c1">10</span>],
+          numbersGreaterTen <span class="pl-k">=</span> [],
+          i;
+
+
+      <span class="pl-k">for</span>(i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-smi">numbers</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {
+        <span class="pl-k">if</span>(numbers[i] <span class="pl-k">&gt;</span> <span class="pl-c1">10</span>) {
+          <span class="pl-smi">numbersGreaterTen</span>.<span class="pl-c1">push</span>(numbers[i]);
+        }
+      }
+
+      <span class="pl-en">log</span>(<span class="pl-s"><span class="pl-pds">'</span>From the list of numbers <span class="pl-pds">'</span></span> <span class="pl-k">+</span> numbers <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> only <span class="pl-pds">'</span></span> <span class="pl-k">+</span> numbersGreaterTen <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> are greater than ten<span class="pl-pds">'</span></span>);
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>));</pre></div>
+
+<p><strong>推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-k">var</span> numbers <span class="pl-k">=</span> [<span class="pl-c1">11</span>, <span class="pl-c1">3</span>, <span class="pl-c1">7</span>, <span class="pl-c1">9</span>, <span class="pl-c1">100</span>, <span class="pl-c1">20</span>, <span class="pl-c1">14</span>, <span class="pl-c1">10</span>];
+
+      <span class="pl-k">var</span> numbersGreaterTen <span class="pl-k">=</span> <span class="pl-smi">numbers</span>.<span class="pl-en">filter</span>(<span class="pl-k">function</span>(<span class="pl-smi">element</span>) {
+        <span class="pl-k">return</span> element <span class="pl-k">&gt;</span> <span class="pl-c1">10</span>;
+      });
+
+      <span class="pl-en">log</span>(<span class="pl-s"><span class="pl-pds">'</span>From the list of numbers <span class="pl-pds">'</span></span> <span class="pl-k">+</span> numbers <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> only <span class="pl-pds">'</span></span> <span class="pl-k">+</span> numbersGreaterTen <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> are greater than ten<span class="pl-pds">'</span></span>);
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>));</pre></div>
+
+<h2>
+<a id="user-content-使用-ecma-script-5" class="anchor" href="#%E4%BD%BF%E7%94%A8-ecma-script-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用 ECMA Script 5</h2>
+
+<p>建议使用 ECMA Script 5 中新增的语法糖和函数。这将简化你的程序，并让你的代码更加灵活和可复用。  </p>
+
+<h2>
+<a id="user-content-数组和对象的属性迭代" class="anchor" href="#%E6%95%B0%E7%BB%84%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E8%BF%AD%E4%BB%A3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>数组和对象的属性迭代</h2>
+
+<p>用 ECMA5 的迭代方法来迭代数组。使用 <code>Array.forEach</code> 或者如果你要在特殊场合下中断迭代，那就用 <code>Array.every</code>。  </p>
+
+<div class="highlight highlight-source-js"><pre>    (<span class="pl-k">function</span>(<span class="pl-smi">log</span>){
+      <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+      <span class="pl-c">// Iterate over an array and break at a certain condition</span>
+      [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>, <span class="pl-c1">4</span>, <span class="pl-c1">5</span>].<span class="pl-en">every</span>(<span class="pl-k">function</span>(<span class="pl-smi">element</span>, <span class="pl-smi">index</span>, <span class="pl-smi">arr</span>) {
+        <span class="pl-en">log</span>(element <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> at index <span class="pl-pds">'</span></span> <span class="pl-k">+</span> index <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> in array <span class="pl-pds">'</span></span> <span class="pl-k">+</span> arr);
+
+        <span class="pl-k">if</span>(index <span class="pl-k">!==</span> <span class="pl-c1">5</span>) {
+          <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+        }
+      });
+
+      <span class="pl-c">// Defining a simple javascript object</span>
+      <span class="pl-k">var</span> obj <span class="pl-k">=</span> {
+        a<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>A<span class="pl-pds">'</span></span>,
+        b<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>,
+        <span class="pl-s"><span class="pl-pds">'</span>c-d-e<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>CDE<span class="pl-pds">'</span></span>
+      };
+
+      <span class="pl-c">// Iterating over the object keys</span>
+      <span class="pl-c1">Object</span>.<span class="pl-en">keys</span>(obj).<span class="pl-en">forEach</span>(<span class="pl-k">function</span>(<span class="pl-smi">element</span>, <span class="pl-smi">index</span>, <span class="pl-smi">arr</span>) {
+        <span class="pl-en">log</span>(<span class="pl-s"><span class="pl-pds">'</span>Key <span class="pl-pds">'</span></span> <span class="pl-k">+</span> element <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> has value <span class="pl-pds">'</span></span> <span class="pl-k">+</span> obj[element]);
+      });
+
+    }(<span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span>));</pre></div>
+
+<h2>
+<a id="user-content-不要使用-switch" class="anchor" href="#%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8-switch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>不要使用 switch</h2>
+
+<p>switch 在所有的编程语言中都是个非常错误的难以控制的语句，建议用 <code>if else</code> 来替换它。  </p>
+
+<h2>
+<a id="user-content-数组和对象字面量" class="anchor" href="#%E6%95%B0%E7%BB%84%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%AD%97%E9%9D%A2%E9%87%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>数组和对象字面量</h2>
+
+<p>用数组和对象字面量来代替数组和对象构造器。数组构造器很容易让人在它的参数上犯错。   </p>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-c">// Length is 3.</span>
+    <span class="pl-k">var</span> a1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Array</span>(x1, x2, x3);
+
+    <span class="pl-c">// Length is 2.</span>
+    <span class="pl-k">var</span> a2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Array</span>(x1, x2);
+
+    <span class="pl-c">// If x1 is a number and it is a natural number the length will be x1.</span>
+    <span class="pl-c">// If x1 is a number but not a natural number this will throw an exception.</span>
+    <span class="pl-c">// Otherwise the array will have one element with x1 as its value.</span>
+    <span class="pl-k">var</span> a3 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Array</span>(x1);
+
+    <span class="pl-c">// Length is 0.</span>
+    <span class="pl-k">var</span> a4 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Array</span>();</pre></div>
+
+<p>正因如此，如果将代码传参从两个变为一个，那数组很有可能发生意料不到的长度变化。为避免此类怪异状况，请总是采用更多可读的数组字面量。  </p>
+
+<p><strong>推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> a <span class="pl-k">=</span> [x1, x2, x3];
+    <span class="pl-k">var</span> a2 <span class="pl-k">=</span> [x1, x2];
+    <span class="pl-k">var</span> a3 <span class="pl-k">=</span> [x1];
+    <span class="pl-k">var</span> a4 <span class="pl-k">=</span> [];</pre></div>
+
+<p>对象构造器不会有类似的问题，但是为了可读性和统一性，我们应该使用对象字面量。   </p>
+
+<p><strong>不推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> o <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Object</span>();
+
+    <span class="pl-k">var</span> o2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Object</span>();
+    <span class="pl-smi">o2</span>.<span class="pl-smi">a</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+    <span class="pl-smi">o2</span>.<span class="pl-smi">b</span> <span class="pl-k">=</span> <span class="pl-c1">1</span>;
+    <span class="pl-smi">o2</span>.<span class="pl-smi">c</span> <span class="pl-k">=</span> <span class="pl-c1">2</span>;
+    o2[<span class="pl-s"><span class="pl-pds">'</span>strange key<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-c1">3</span>;</pre></div>
+
+<p><strong>推荐</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> o <span class="pl-k">=</span> {};
+
+    <span class="pl-k">var</span> o2 <span class="pl-k">=</span> {
+      a<span class="pl-k">:</span> <span class="pl-c1">0</span>,
+      b<span class="pl-k">:</span> <span class="pl-c1">1</span>,
+      c<span class="pl-k">:</span> <span class="pl-c1">2</span>,
+      <span class="pl-s"><span class="pl-pds">'</span>strange key<span class="pl-pds">'</span></span><span class="pl-k">:</span> <span class="pl-c1">3</span>
+    };</pre></div>
+
+<h2>
+<a id="user-content-修改内建对象的原型链" class="anchor" href="#%E4%BF%AE%E6%94%B9%E5%86%85%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8E%9F%E5%9E%8B%E9%93%BE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>修改内建对象的原型链</h2>
+
+<p>修改内建的诸如 <code>Object.prototype</code> 和 <code>Array.prototype</code> 是被严厉禁止的。修改其它的内建对象比如 <code>Function.prototype</code>，虽危害没那么大，但始终还是会导致在开发过程中难以 debug 的问题，应当也要避免。  </p>
+
+<h2>
+<a id="user-content-自定义-tostring-方法" class="anchor" href="#%E8%87%AA%E5%AE%9A%E4%B9%89-tostring-%E6%96%B9%E6%B3%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>自定义 toString() 方法</h2>
+
+<p>你可以通过自定义 <code>toString()</code> 来控制对象字符串化。这很好，但你必须保证你的方法总是成功并不会有其它副作用。如果你的方法达不到这样的标准，那将会引发严重的问题。如果 <code>toString()</code> 调用了一个方法，这个方法做了一个断言 ，当断言失败，它可能会输出它所在对象的名称，当然对象也需要调用 <code>toString()</code>。</p>
+
+<h2>
+<a id="user-content-圆括号" class="anchor" href="#%E5%9C%86%E6%8B%AC%E5%8F%B7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>圆括号</h2>
+
+<p>一般在语法和语义上真正需要时才谨慎地使用圆括号。不要用在一元操作符上，例如 <code>delete</code>, <code>typeof</code> 和 <code>void</code>，或在关键字之后，例如 <code>return</code>, <code>throw</code>, <code>case</code>, <code>new</code> 等。  </p>
+
+<h2>
+<a id="user-content-字符串" class="anchor" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>字符串</h2>
+
+<p>统一使用单引号(‘)，不使用双引号(“)。这在创建 HTML 字符串非常有好处：  </p>
+
+<pre><code>var msg = 'This is some HTML &lt;div class="makes-sense"&gt;&lt;/div&gt;';  
+</code></pre>
+
+<h2>
+<a id="user-content-三元条件判断if-的快捷方法" class="anchor" href="#%E4%B8%89%E5%85%83%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%ADif-%E7%9A%84%E5%BF%AB%E6%8D%B7%E6%96%B9%E6%B3%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>三元条件判断（if 的快捷方法）</h2>
+
+<p>用三元操作符分配或返回语句。在比较简单的情况下使用，避免在复杂的情况下使用。没人愿意用 10 行三元操作符把自己的脑子绕晕。  </p>
+
+<h2>
+<a id="user-content-js写法" class="anchor" href="#js%E5%86%99%E6%B3%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>js写法</h2>
+
+<h3>
+<a id="user-content-编码规则" class="anchor" href="#%E7%BC%96%E7%A0%81%E8%A7%84%E5%88%99" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>编码规则</h3>
+
+<ol>
+<li><p>变量采用驼峰命名法</p></li>
+<li><p>关键词、条件括弧后面使用空格；运算操作符号两侧使用空格；语句分割符‘,’后面使用空格  </p></li>
+</ol>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> name[空格]<span class="pl-k">=</span>[空格]value;
+        <span class="pl-k">if</span>[空格](a,[空格]b) {
+    }</pre></div>
+
+<ol>
+<li>单行过长应在适当位置予以换行,增强可读性,折行后，||、&amp;&amp; 等符号应与 “(” 后的第一个字母纵向对齐<br>
+</li>
+</ol>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">if</span> (condition1 
+     <span class="pl-k">&amp;&amp;</span> condition2 
+     <span class="pl-k">||</span> condition3) {
+    }</pre></div>
+
+<ol>
+<li>语法意义相互独立的代码将用空行分隔</li>
+</ol>
+
+<h3>
+<a id="user-content-注释规范" class="anchor" href="#%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>注释规范</h3>
+
+<ol>
+<li>文件注释<br>
+
+<ul>
+<li>文件注释要标明作者、文件版本、创建/修改时间、重大版本修改记录</li>
+<li>函数描述</li>
+<li>文件版本、创建或者修改时间、功能、作者<br>
+</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-c">/**</span>
+<span class="pl-c">    * <span class="pl-k">@file</span> Image.js</span>
+<span class="pl-c">    * <span class="pl-k">@description</span> 功能详细描述</span>
+<span class="pl-c">    */</span></pre></div>
+
+<ul>
+<li>函数或者类等都要添加头描述</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-c">/**</span>
+<span class="pl-c">    * 简述</span>
+<span class="pl-c">    *</span>
+<span class="pl-c">    * 功能详细描述</span>
+<span class="pl-c">    *</span>
+<span class="pl-c">    * <span class="pl-k">@param</span> &lt;String&gt; arg1 参数1</span>
+<span class="pl-c">    * <span class="pl-k">@param</span> &lt;Number&gt; arg2 参数2，默认为0</span>
+<span class="pl-c">    * <span class="pl-k">@return</span> &lt;Boolean&gt; 看xxx是否成功</span>
+<span class="pl-c">    */</span>
+    <span class="pl-k">function</span> <span class="pl-en">fooFunction</span> (<span class="pl-smi">arg1</span>, <span class="pl-smi">arg2</span>) {
+    }</pre></div>
+</li>
+<li>操作注释
+
+<ul>
+<li>单行注释,写在代码上面</li>
+<li>多行注释</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-c">/*</span>
+<span class="pl-c">    * 注释操作说明</span>
+<span class="pl-c">    */</span>
+    <span class="pl-k">for</span>( <span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-smi">obj</span>.<span class="pl-smi">lenght</span>; i<span class="pl-k">++</span>) {
+    }</pre></div>
+</li>
+</ol>
+
+<h2>
+<a id="user-content-字符串拼接" class="anchor" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>字符串拼接</h2>
+
+<p>字符串拼接，应使用数组保存字符串片段，使用时调用join方法。避免使用+或+=的方式拼接较长的字符串，每个字符串都会使用一个小的内存片段，过多的内存片段会影响性能。如:  </p>
+
+<div class="highlight highlight-source-js"><pre>    不好的拼接方式，<span class="pl-k">+=</span>
+
+    <span class="pl-k">var</span> str <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>; 
+    <span class="pl-k">for</span> (<span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>, len <span class="pl-k">=</span> <span class="pl-smi">list</span>.<span class="pl-c1">length</span>; i <span class="pl-k">&lt;</span> len; i<span class="pl-k">++</span>) { 
+      str<span class="pl-k">+=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;div&gt;<span class="pl-pds">'</span></span> <span class="pl-k">+</span> list[i] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;/div&gt;<span class="pl-pds">'</span></span>; 
+    } 
+    <span class="pl-smi">dom</span>.<span class="pl-smi">innerHTML</span> <span class="pl-k">=</span> str;
+
+    正确拼接方式，<span class="pl-c1">Array</span>的push<span class="pl-k">+</span>join
+
+    <span class="pl-k">var</span> str <span class="pl-k">=</span> []; 
+    <span class="pl-k">for</span> (<span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>, len <span class="pl-k">=</span> <span class="pl-smi">list</span>.<span class="pl-c1">length</span>; i <span class="pl-k">&lt;</span> len; i<span class="pl-k">++</span>) { 
+      <span class="pl-smi">str</span>.<span class="pl-c1">push</span>(<span class="pl-s"><span class="pl-pds">'</span>&lt;div&gt;<span class="pl-pds">'</span></span><span class="pl-k">+</span> list[i] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;/div&gt;<span class="pl-pds">'</span></span>); 
+    } 
+    <span class="pl-smi">dom</span>.<span class="pl-smi">innerHTML</span> <span class="pl-k">=</span> <span class="pl-smi">str</span>.<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>);</pre></div>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

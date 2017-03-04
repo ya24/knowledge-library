@@ -1,0 +1,297 @@
+@charset "utf-8";
+@import "iconfont.css";
+
+
+
+$debug: 1px solid;
+$maxWidth: 768px 992px 1200px;
+$mainColor: #2c2c2c;
+
+@function toRem($px) {
+  @return $px / 10 * 1rem;
+}
+
+@mixin transition($param...) {
+  -webkit-transition: $param;
+  -moz-transition: $param;
+  -ms-transition: $param;
+  -o-transition: $param;
+  transition: $param;
+}
+
+@mixin boxShadow($param...) {
+  -webkit-box-shadow: $param;
+  -moz-box-shadow: $param;
+  box-shadow: $param;
+}
+
+@mixin boxSizing($param) {
+  -webkit-box-sizing: $param;
+  -moz-box-sizing: $param;
+  box-sizing: $param;
+}
+
+@mixin borderRadius($param) {
+  -webkit-border-radius: $param;
+  -moz-border-radius: $param;
+  border-radius: $param;
+}
+
+@mixin transform($param...) {
+  -webkit-transform: $param;
+  -moz-transform: $param;
+  -ms-transform: $param;
+  -o-transform: $param;
+  transform: $param;
+}
+
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p,
+blockquote, a, acronym, address, big, cite, code,
+img, ul, li, tbody, tfoot, thead, tr, th, td, article,
+aside, footer, header, nav, section, audio, video, form,
+input, button {
+  margin: 0;
+  padding: 0;
+  @include boxSizing(border-box);
+  outline: none;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+a, button, input, li, span {
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+html {
+  font-size: 62.5%; /* 10÷16=62.5% */
+}
+
+//html, body{
+//  overflow: hidden;
+//}
+
+
+@media (max-width: 320px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 415px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html, body {
+  //width: 100%;
+  //overflow-y: hidden;
+  //padding-right: 60px;
+}
+
+body {
+  margin: 0 auto;
+  font-family: "Microsoft YaHei UI", "宋体";
+}
+
+.sr-hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.demo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.blur {
+  -webkit-backdrop-filter: blur(3px);
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -ms-filter: blur(3px);
+  -o-filter: blur(3px);
+  filter: blur(3px);
+}
+
+:before {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.nav-btn {
+
+  //z-index: 2;
+  //top: 5%;
+  width: 100%;
+  //padding-top: 10%;
+  overflow: hidden;
+  @include transition(filter .3s linear);
+
+
+  @mixin navButton($position: left, $radiusDir: right) {
+    position: fixed;
+    z-index: 2;
+    top: 5%;
+    #{$position}: 0;
+    width: 16%;
+    padding-top: 10%;
+    border-top-#{$radiusDir}-radius: toRem(50);
+    border-bottom-#{$radiusDir}-radius: toRem(50);
+    color: white;
+    font-size: toRem(24);
+    background-color: $mainColor;
+    opacity: 1;
+    cursor: pointer;
+
+    @include transition($position 1.2s ease, opacity 1.0s linear 0.2s);
+  }
+
+  %navSpan {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+    //margin-left: -0.5em;
+    line-height: 1em;
+  }
+
+  .nav-menu {
+    @include navButton(left, right);
+
+    &.nav-hide {
+      left: -16%;
+      opacity: 0;
+    }
+    span {
+      @extend %navSpan;
+      left: 50%;
+      margin-left: -0.5em;
+    }
+  }
+  .nav-search {
+    @include navButton(right, left);
+
+    &.nav-hide {
+      right: -16%;
+      opacity: 0;
+    }
+
+    span {
+      @extend %navSpan;
+      right: 50%;
+      margin-right: -0.5em;
+    }
+  }
+
+
+}
+
+.nav-bg {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.nav-side-box {
+  position: fixed;
+  left: -65%;
+  z-index: 2;
+  width: 60%;
+  height: 100%;
+  font-weight: lighter;
+  @include transform(translate3d(0,0,0));
+  @include transition(all .5s ease);
+
+  @include boxShadow(6px 0 20px rgba(0, 0, 0, 0.5));
+
+  color: white;
+  background-color: $mainColor;
+  &.nav-show {
+    left: 0;
+  }
+
+  > div {
+    position: relative;
+    height: 10%;
+    color: #fff;
+
+    %a {
+      position: absolute;
+      bottom: 5%;
+      font-size: toRem(20);
+    }
+    h2 {
+      @extend %a;
+      left: 5%;
+      padding-left: 5%;
+      font-weight: lighter;
+    }
+    span {
+      @extend %a;
+      right: 5%;
+      font-size: toRem(22);
+      cursor: pointer;
+      @include boxSizing(border-box);
+    }
+  }
+
+  hr {
+    margin-top: 1%;
+    margin-bottom: 4%;
+    border-color: black;
+    @include boxShadow(0 1px 1px rgba(255, 255, 255, 0.3));
+  }
+
+  > ul {
+    width: 100%;
+
+    > li {
+      width: 100%;
+      padding-left: 10%;
+      line-height: 2.3em;
+      font-size: toRem(18);
+      cursor: pointer;
+
+      &:hover {
+        background-color: #1d1d1d;
+        @include boxShadow(inset -1px -1px 2px rgba(255, 255, 255, 0.2));
+      }
+
+      a {
+        display: block;
+        width: 100%;
+      }
+
+      span {
+        margin-right: 4%;
+      }
+    }
+  }
+}
+
+
+@import "search.scss";

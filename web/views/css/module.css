@@ -1,0 +1,97 @@
+.index-head {
+	position: relative;
+	width: 100%;
+	padding-top: 30%;
+	text-align: center;
+}
+.index-head > img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 2rem;
+	width: 100%;
+	height: 100%;
+}
+
+.article {margin-bottom: 2%;}
+.article >ul {
+	list-style: none;
+	width: 100%;
+	height: 96%;
+}
+.article-content {
+	width: 100%;
+	color: #5b5b5b;
+	border-top: 1px solid;
+	border-color: #ccc;
+}
+.article-content:last-child {
+	border-bottom: 1px solid;
+	border-color: #ccc;
+}
+.article-inner {
+	width: 90%;
+	margin: 0 5%;
+	padding-top: 3%;
+	font-size: 1rem;
+	border-bottom: 1px solid;	
+	border-color: #ccc;
+}
+.absolute-container {
+	position: relative;
+	width: 90%;
+	padding-top: 20%;
+	top: 0;
+	left: 5%;
+}
+.article-img {
+	position: absolute;	
+	left: 0;
+	top: 4%;
+	width: 20%;
+	height: 90%;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.article-img img {width: 100%;
+height: 100%;}
+.article-main {
+	position: absolute;
+	left: 23%;
+	top: 0;
+	letter-spacing: .15rem;
+	padding-top: .6%;
+	width: 75%;
+	height: 100%;
+}
+.article-title {
+	width: 100%;
+	height: 70%;
+	padding-left: 2%;
+	padding-top: 2.5%;
+	font-size: 1.5rem;
+}
+.article-main > p {font-size: 1rem;padding-left: 2%;}
+.loading_top,.no_content,.loading_bottom,.no_more,.btn-more {
+	display: none;
+	padding: 2% 2%;
+	text-align: center;
+	font-size: 1.6rem;
+	background-color: transparent;
+	border: none;
+}
+.btn-more {display: block;}
+.article-content:first-child {border-top: none;}
+.article-attr {
+  list-style: none;
+  height: 30%;
+  width: 100%;
+}
+.article-attr >li {
+  float: left;
+  width: 50%;
+}
+.article-attr >li:nth-child(2) {
+  text-align: right;
+  padding-right: 2%;
+}

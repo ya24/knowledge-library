@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="./views/css/common.css">
+    <link rel="stylesheet" href="./views/css/module.css">
+    <title>搜索</title>
+</head>
+<body>
+<div class="search-base">
+    <div class="search-bar">
+        <form action="?c=Search&a=handleSearch" method="post">
+            <label>
+                <span class="icon-search"></span>
+                <input id="search-input" name="searchValue" type="text" placeholder="search" autofocus autocomplete=off>
+                <span id="search-cancel" class="icon-delsolid sr-hide"></span>
+            </label>
+            <button type="submit">
+                <span class="icon-Go"></span>
+            </button>
+        </form>
+
+    </div>
+</div>
+<hr>
+{if $flag}
+<div class="search-result">
+    {else}
+    <div class="search-result sr-hide">
+        {/if}
+        <section class="search-classify">
+     {if $categorys==null}
+        <h6 class="classify-title">无分类</h6>
+            {else}
+            <h6 class="classify-title">分类</h6>
+            {/if}
+        <ul>
+            {if $flag eq true}
+            <!-- 显示搜索出来的分类 -->
+            {foreach from=$categorys item=category}
+            <li><a href="">{$category.category_name}</a></li>
+            {/foreach}
+            {/if}
+<!--
+            <li><a href="">分类1</a></li>
+            <li><a href="">分类2</a></li>-->
+        </ul>
+        <!--<hr>-->
+        <button>
+            查看更多
+            <span class="icon-down"></span>
+        </button>
+    </section>
+
+
+
+
+        <section class="search-article">
+            <div class="break-line"></div>
+
+            {if $articles==null}
+        <h6 class="classify-title">无文章</h6>
+            {else}
+            <h6 class="classify-title">文章</h6>
+            {/if}
+        <ul>
+            {foreach from=$articles item=article}
+            <li class="article-content">
+                <div class="absolute-container">
+                    <div class="article-img" style="border-radius: 50%;"><img src="./views/images/{$article.icon}.png" alt=""></div>
+                    <div class="article-main">
+                        <div class="article-title"><a href="{$article.article_original_url}"> {$article.article_title}</a></div>
+                        <ul class="article-attr">
+                            <li>{substr($article.create_time,0,10)}</li>
+                            <li>{$article.category_name}</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            {/foreach}
+            <!--
+            <li class="article-content">
+                <div class="absolute-container">
+                    <div class="article-img" style="border-radius: 50%;"><img src="images/01.png" alt=""></div>
+                    <div class="article-main">
+                        <div class="article-title">Spring的loc容器是整个Spring框架的核心和基础 , Spring为什么要提供这样一个容器呢？</div>
+                        <ul class="article-attr">
+                            <li>2016/10/7</li>
+                            <li>IT类</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="article-content">
+                <div class="absolute-container">
+                    <div class="article-img" style="border-radius: 50%;"><img src="images/01.png" alt=""></div>
+                    <div class="article-main">
+                        <div class="article-title">Spring的loc容器是整个Spring框架的核心和基础 , Spring为什么要提供这样一个容器呢？</div>
+                        <ul class="article-attr">
+                            <li>2016/10/7</li>
+                            <li>IT类</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            -->
+        </ul>
+        <!--<hr>-->
+        <button>
+            查看更多
+            <span class="icon-down"></span>
+        </button>
+    </section>
+
+
+
+    <div class="break-line"></div>
+    <section class="search-other">
+        <a>
+            <span class="icon-search"></span>
+            其他
+            <span class="icon-right"></span>
+        </a>
+    </section>
+</div>
+
+    {if $flag}
+    <div class="search-tag sr-hide">
+        {else}
+        <div class="search-tag">
+            {/if}
+
+    <section class="hot-tag">
+        <h6 class="classify-title">热门搜索词</h6>
+        <ul class="search-tag-cloud">
+            <li><a href="">java</a></li>
+            <li><a href="">script</a></li>
+            <li><a href="">spring</a></li>
+            <li><a href="">csharp</a></li>
+            <li><a href="">abcdefghi</a></li>
+            <li><a href="">pengcanqiang</a></li>
+            <li><a href="">灿强</a></li>
+        </ul>
+    </section>
+    <seaction class="history">
+        <h6 class="classify-title">历史搜索词</h6>
+        <ul class="search-tag-cloud">
+            <li><a href="">java</a></li>
+            <li><a href="">javascript</a></li>
+            <li><a href="">spring</a></li>
+            <li><a href="">c sharp</a></li>
+            <li><a href="">abcdefghi</a></li>
+            <li><a href="">pengcanqiang</a></li>
+            <li><a href="">灿强</a></li>
+        </ul>
+    </seaction>
+    <p><a id="clearRecord" href="javascript:;">清空搜索记录</a></p>
+</div>
+<script src="./views/js/jquery.js"></script>
+<script src="./views/js/common.js"></script>
+</body>
+</html>
